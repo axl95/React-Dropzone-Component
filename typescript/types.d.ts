@@ -68,7 +68,7 @@ export declare interface DropzoneComponentConfig {
     showFiletypeIcon?: boolean;
     iconFiletypes?: string[];
     postUrl?: string;
-    dropzoneSelector?: string;
+    dropzoneSelector?: string | HTMLElement;
 }
 
 interface DropzoneComponentProps {

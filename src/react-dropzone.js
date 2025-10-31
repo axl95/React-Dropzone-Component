@@ -41,14 +41,17 @@ export class DropzoneComponent extends React.Component {
   componentDidMount () {
     const options = this.getDjsConfig()
 
-    Dropzone = Dropzone || require('dropzone')
-    Dropzone.autoDiscover = false
+
+    let DropzoneModule = (typeof window !== 'undefined' && window.Dropzone) ? window.Dropzone : (Dropzone || require('dropzone'))
+    DropzoneModule = DropzoneModule.default || DropzoneModule
+    DropzoneModule.autoDiscover = false
+    Dropzone = DropzoneModule
 
     if (!this.props.config.postUrl && !this.props.eventHandlers.drop) {
       console.info('Neither postUrl nor a "drop" eventHandler specified, the React-Dropzone component might misbehave.')
     }
 
-    var dropzoneNode = this.props.config.dropzoneSelector || ReactDOM.findDOMNode(this)
+    var dropzoneNode = this.props.config.dropzoneSelector /*|| ReactDOM.findDOMNode(this)*/
     this.dropzone = new Dropzone(dropzoneNode, options)
     this.setupEvents()
   }
@@ -91,7 +94,7 @@ export class DropzoneComponent extends React.Component {
     this.queueDestroy = false
 
     if (!this.dropzone) {
-      const dropzoneNode = this.props.config.dropzoneSelector || ReactDOM.findDOMNode(this)
+      const dropzoneNode = this.props.config.dropzoneSelector /*|| ReactDOM.findDOMNode(this)*/
       this.dropzone = new Dropzone(dropzoneNode, this.getDjsConfig())
     }
   }
