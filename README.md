@@ -1,3 +1,5 @@
+> :warning: This repo is a FORK ! Fixes some compilation warnings with React ^19 ( findDOMNode, ect ... ) and some callbacks artefacts.
+
 ## Dropzone.js Component for React
 [![Build Status](https://travis-ci.org/felixrieseberg/React-Dropzone-Component.svg?branch=master)](https://travis-ci.org/felixrieseberg/React-Dropzone-Component) [![Dependency Status](https://david-dm.org/felixrieseberg/react-dropzone-component.svg)](https://david-dm.org/felixrieseberg/react-dropzone-component) [![npm version](https://badge.fury.io/js/react-dropzone-component.svg)](https://badge.fury.io/js/react-dropzone-component) ![Downloads](https://img.shields.io/npm/dm/react-dropzone-component.svg)
 
